@@ -1,4 +1,4 @@
-module elasticemail-go
+module github.com/timi-olaatanda/elasticemail-go
 
 go 1.13
 
