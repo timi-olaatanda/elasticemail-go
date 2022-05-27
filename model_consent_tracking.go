@@ -21,9 +21,9 @@ type ConsentTracking string
 
 // List of ConsentTracking
 const (
-	UNKNOWN ConsentTracking = "Unknown"
-	ALLOW ConsentTracking = "Allow"
-	DENY ConsentTracking = "Deny"
+	UNKNOWN_CONSENT_TRACKING ConsentTracking = "Unknown"
+	ALLOW_CONSENT_TRACKING   ConsentTracking = "Allow"
+	DENY_CONSENT_TRACKING    ConsentTracking = "Deny"
 )
 
 // All allowed values of ConsentTracking enum
@@ -111,4 +111,3 @@ func (v *NullableConsentTracking) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

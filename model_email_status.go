@@ -23,7 +23,7 @@ type EmailStatus struct {
 	// Email address this email was sent to.
 	To *string `json:"To,omitempty"`
 	// Date the email was submitted.
-	Date *time.Time `json:"Date,omitempty"`
+	Date   *time.Time    `json:"Date,omitempty"`
 	Status *LogJobStatus `json:"Status,omitempty"`
 	// Name of email's status
 	StatusName *string `json:"StatusName,omitempty"`
@@ -49,7 +49,7 @@ type EmailStatus struct {
 // will change when the set of required properties is changed
 func NewEmailStatus() *EmailStatus {
 	this := EmailStatus{}
-	var status LogJobStatus = ALL
+	var status LogJobStatus = ALL_LOG_JOB_STATUS
 	this.Status = &status
 	return &this
 }
@@ -59,7 +59,7 @@ func NewEmailStatus() *EmailStatus {
 // but it doesn't guarantee that properties required by API are set
 func NewEmailStatusWithDefaults() *EmailStatus {
 	this := EmailStatus{}
-	var status LogJobStatus = ALL
+	var status LogJobStatus = ALL_LOG_JOB_STATUS
 	this.Status = &status
 	return &this
 }
@@ -301,7 +301,7 @@ func (o *EmailStatus) GetDateOpened() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EmailStatus) GetDateOpenedOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.DateOpened.Get(), o.DateOpened.IsSet()
@@ -320,6 +320,7 @@ func (o *EmailStatus) HasDateOpened() bool {
 func (o *EmailStatus) SetDateOpened(v time.Time) {
 	o.DateOpened.Set(&v)
 }
+
 // SetDateOpenedNil sets the value for DateOpened to be an explicit nil
 func (o *EmailStatus) SetDateOpenedNil() {
 	o.DateOpened.Set(nil)
@@ -343,7 +344,7 @@ func (o *EmailStatus) GetDateClicked() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *EmailStatus) GetDateClickedOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.DateClicked.Get(), o.DateClicked.IsSet()
@@ -362,6 +363,7 @@ func (o *EmailStatus) HasDateClicked() bool {
 func (o *EmailStatus) SetDateClicked(v time.Time) {
 	o.DateClicked.Set(&v)
 }
+
 // SetDateClickedNil sets the value for DateClicked to be an explicit nil
 func (o *EmailStatus) SetDateClickedNil() {
 	o.DateClicked.Set(nil)
@@ -544,5 +546,3 @@ func (v *NullableEmailStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

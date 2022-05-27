@@ -21,9 +21,9 @@ type VerificationFileResult struct {
 	// Identifier of this verification result
 	VerificationID *string `json:"VerificationID,omitempty"`
 	// Origin file name
-	Filename *string `json:"Filename,omitempty"`
+	Filename           *string             `json:"Filename,omitempty"`
 	VerificationStatus *VerificationStatus `json:"VerificationStatus,omitempty"`
-	FileUploadResult *FileUploadResult `json:"FileUploadResult,omitempty"`
+	FileUploadResult   *FileUploadResult   `json:"FileUploadResult,omitempty"`
 	// Date of creation in YYYY-MM-DDThh:ii:ss format
 	DateAdded *time.Time `json:"DateAdded,omitempty"`
 	// Origin file extension
@@ -36,7 +36,7 @@ type VerificationFileResult struct {
 // will change when the set of required properties is changed
 func NewVerificationFileResult() *VerificationFileResult {
 	this := VerificationFileResult{}
-	var verificationStatus VerificationStatus = PROCESSING
+	var verificationStatus VerificationStatus = PROCESSING_VERIFICATION_STATUS
 	this.VerificationStatus = &verificationStatus
 	return &this
 }
@@ -46,7 +46,7 @@ func NewVerificationFileResult() *VerificationFileResult {
 // but it doesn't guarantee that properties required by API are set
 func NewVerificationFileResultWithDefaults() *VerificationFileResult {
 	this := VerificationFileResult{}
-	var verificationStatus VerificationStatus = PROCESSING
+	var verificationStatus VerificationStatus = PROCESSING_VERIFICATION_STATUS
 	this.VerificationStatus = &verificationStatus
 	return &this
 }
@@ -301,5 +301,3 @@ func (v *NullableVerificationFileResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

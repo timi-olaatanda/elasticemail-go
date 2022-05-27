@@ -21,23 +21,23 @@ type MessageCategory string
 
 // List of MessageCategory
 const (
-	UNKNOWN MessageCategory = "Unknown"
-	IGNORE MessageCategory = "Ignore"
-	SPAM MessageCategory = "Spam"
-	BLACK_LISTED MessageCategory = "BlackListed"
-	NO_MAILBOX MessageCategory = "NoMailbox"
-	GREY_LISTED MessageCategory = "GreyListed"
-	THROTTLED MessageCategory = "Throttled"
-	TIMEOUT MessageCategory = "Timeout"
-	CONNECTION_PROBLEM MessageCategory = "ConnectionProblem"
-	SPF_PROBLEM MessageCategory = "SPFProblem"
-	ACCOUNT_PROBLEM MessageCategory = "AccountProblem"
-	DNS_PROBLEM MessageCategory = "DNSProblem"
-	NOT_DELIVERED_CANCELLED MessageCategory = "NotDeliveredCancelled"
-	CODE_ERROR MessageCategory = "CodeError"
-	MANUAL_CANCEL MessageCategory = "ManualCancel"
-	CONNECTION_TERMINATED MessageCategory = "ConnectionTerminated"
-	NOT_DELIVERED MessageCategory = "NotDelivered"
+	UNKNOWN_MESSAGE_CATEGORY                 MessageCategory = "Unknown"
+	IGNORE_MESSAGE_CATEGORY                  MessageCategory = "Ignore"
+	SPAM_MESSAGE_CATEGORY                    MessageCategory = "Spam"
+	BLACK_LISTED_MESSAGE_CATEGORY            MessageCategory = "BlackListed"
+	NO_MAILBOX_MESSAGE_CATEGORY              MessageCategory = "NoMailbox"
+	GREY_LISTED_MESSAGE_CATEGORY             MessageCategory = "GreyListed"
+	THROTTLED_MESSAGE_CATEGORY               MessageCategory = "Throttled"
+	TIMEOUT_MESSAGE_CATEGORY                 MessageCategory = "Timeout"
+	CONNECTION_PROBLEM_MESSAGE_CATEGORY      MessageCategory = "ConnectionProblem"
+	SPF_PROBLEM_MESSAGE_CATEGORY             MessageCategory = "SPFProblem"
+	ACCOUNT_PROBLEM_MESSAGE_CATEGORY         MessageCategory = "AccountProblem"
+	DNS_PROBLEM_MESSAGE_CATEGORY             MessageCategory = "DNSProblem"
+	NOT_DELIVERED_CANCELLED_MESSAGE_CATEGORY MessageCategory = "NotDeliveredCancelled"
+	CODE_ERROR_MESSAGE_CATEGORY              MessageCategory = "CodeError"
+	MANUAL_CANCEL_MESSAGE_CATEGORY           MessageCategory = "ManualCancel"
+	CONNECTION_TERMINATED_MESSAGE_CATEGORY   MessageCategory = "ConnectionTerminated"
+	NOT_DELIVERED_MESSAGE_CATEGORY           MessageCategory = "NotDelivered"
 )
 
 // All allowed values of MessageCategory enum
@@ -139,4 +139,3 @@ func (v *NullableMessageCategory) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

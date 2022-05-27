@@ -21,7 +21,7 @@ type ConsentData struct {
 	// IP address of consent to send this contact(s) your email. If not provided your current public IP address is used for consent.
 	ConsentIP *string `json:"ConsentIP,omitempty"`
 	// Date of consent to send this contact(s) your email. If not provided current date is used for consent.
-	ConsentDate NullableTime `json:"ConsentDate,omitempty"`
+	ConsentDate     NullableTime     `json:"ConsentDate,omitempty"`
 	ConsentTracking *ConsentTracking `json:"ConsentTracking,omitempty"`
 }
 
@@ -31,7 +31,7 @@ type ConsentData struct {
 // will change when the set of required properties is changed
 func NewConsentData() *ConsentData {
 	this := ConsentData{}
-	var consentTracking ConsentTracking = UNKNOWN
+	var consentTracking ConsentTracking = UNKNOWN_CONSENT_TRACKING
 	this.ConsentTracking = &consentTracking
 	return &this
 }
@@ -41,7 +41,7 @@ func NewConsentData() *ConsentData {
 // but it doesn't guarantee that properties required by API are set
 func NewConsentDataWithDefaults() *ConsentData {
 	this := ConsentData{}
-	var consentTracking ConsentTracking = UNKNOWN
+	var consentTracking ConsentTracking = UNKNOWN_CONSENT_TRACKING
 	this.ConsentTracking = &consentTracking
 	return &this
 }
@@ -91,7 +91,7 @@ func (o *ConsentData) GetConsentDate() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *ConsentData) GetConsentDateOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ConsentDate.Get(), o.ConsentDate.IsSet()
@@ -110,6 +110,7 @@ func (o *ConsentData) HasConsentDate() bool {
 func (o *ConsentData) SetConsentDate(v time.Time) {
 	o.ConsentDate.Set(&v)
 }
+
 // SetConsentDateNil sets the value for ConsentDate to be an explicit nil
 func (o *ConsentData) SetConsentDateNil() {
 	o.ConsentDate.Set(nil)
@@ -201,5 +202,3 @@ func (v *NullableConsentData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,11 +21,11 @@ type VerificationStatus string
 
 // List of VerificationStatus
 const (
-	PROCESSING VerificationStatus = "Processing"
-	READY VerificationStatus = "Ready"
-	EXPIRED VerificationStatus = "Expired"
-	VERIFIED VerificationStatus = "Verified"
-	ERROR VerificationStatus = "Error"
+	PROCESSING_VERIFICATION_STATUS VerificationStatus = "Processing"
+	READY_VERIFICATION_STATUS      VerificationStatus = "Ready"
+	EXPIRED_VERIFICATION_STATUS    VerificationStatus = "Expired"
+	VERIFIED_VERIFICATION_STATUS   VerificationStatus = "Verified"
+	ERROR_VERIFICATION_STATUS      VerificationStatus = "Error"
 )
 
 // All allowed values of VerificationStatus enum
@@ -115,4 +115,3 @@ func (v *NullableVerificationStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

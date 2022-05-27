@@ -19,7 +19,7 @@ import (
 // Contact Contact
 type Contact struct {
 	// Proper email address.
-	Email *string `json:"Email,omitempty"`
+	Email  *string        `json:"Email,omitempty"`
 	Status *ContactStatus `json:"Status,omitempty"`
 	// First name.
 	FirstName *string `json:"FirstName,omitempty"`
@@ -27,15 +27,15 @@ type Contact struct {
 	LastName *string `json:"LastName,omitempty"`
 	// A key-value collection of custom contact fields which can be used in the system.
 	CustomFields *map[string]string `json:"CustomFields,omitempty"`
-	Consent *ConsentData `json:"Consent,omitempty"`
-	Source *ContactSource `json:"Source,omitempty"`
+	Consent      *ConsentData       `json:"Consent,omitempty"`
+	Source       *ContactSource     `json:"Source,omitempty"`
 	// Date of creation in YYYY-MM-DDThh:ii:ss format
 	DateAdded *time.Time `json:"DateAdded,omitempty"`
 	// Last change date
 	DateUpdated NullableTime `json:"DateUpdated,omitempty"`
 	// Date of last status change.
-	StatusChangeDate NullableTime `json:"StatusChangeDate,omitempty"`
-	Activity *ContactActivity `json:"Activity,omitempty"`
+	StatusChangeDate NullableTime     `json:"StatusChangeDate,omitempty"`
+	Activity         *ContactActivity `json:"Activity,omitempty"`
 }
 
 // NewContact instantiates a new Contact object
@@ -44,7 +44,7 @@ type Contact struct {
 // will change when the set of required properties is changed
 func NewContact() *Contact {
 	this := Contact{}
-	var status ContactStatus = TRANSACTIONAL
+	var status ContactStatus = TRANSACTIONAL_CONTACT_STATUS
 	this.Status = &status
 	var source ContactSource = DELIVERY_API
 	this.Source = &source
@@ -56,7 +56,7 @@ func NewContact() *Contact {
 // but it doesn't guarantee that properties required by API are set
 func NewContactWithDefaults() *Contact {
 	this := Contact{}
-	var status ContactStatus = TRANSACTIONAL
+	var status ContactStatus = TRANSACTIONAL_CONTACT_STATUS
 	this.Status = &status
 	var source ContactSource = DELIVERY_API
 	this.Source = &source
@@ -332,7 +332,7 @@ func (o *Contact) GetDateUpdated() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Contact) GetDateUpdatedOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.DateUpdated.Get(), o.DateUpdated.IsSet()
@@ -351,6 +351,7 @@ func (o *Contact) HasDateUpdated() bool {
 func (o *Contact) SetDateUpdated(v time.Time) {
 	o.DateUpdated.Set(&v)
 }
+
 // SetDateUpdatedNil sets the value for DateUpdated to be an explicit nil
 func (o *Contact) SetDateUpdatedNil() {
 	o.DateUpdated.Set(nil)
@@ -374,7 +375,7 @@ func (o *Contact) GetStatusChangeDate() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Contact) GetStatusChangeDateOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.StatusChangeDate.Get(), o.StatusChangeDate.IsSet()
@@ -393,6 +394,7 @@ func (o *Contact) HasStatusChangeDate() bool {
 func (o *Contact) SetStatusChangeDate(v time.Time) {
 	o.StatusChangeDate.Set(&v)
 }
+
 // SetStatusChangeDateNil sets the value for StatusChangeDate to be an explicit nil
 func (o *Contact) SetStatusChangeDateNil() {
 	o.StatusChangeDate.Set(nil)
@@ -508,5 +510,3 @@ func (v *NullableContact) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

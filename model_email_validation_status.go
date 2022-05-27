@@ -21,11 +21,11 @@ type EmailValidationStatus string
 
 // List of EmailValidationStatus
 const (
-	NONE EmailValidationStatus = "None"
-	VALID EmailValidationStatus = "Valid"
-	UNKNOWN EmailValidationStatus = "Unknown"
-	RISKY EmailValidationStatus = "Risky"
-	INVALID EmailValidationStatus = "Invalid"
+	NONE_EMAIL_VALIDATION_STATUS    EmailValidationStatus = "None"
+	VALID_EMAIL_VALIDATION_STATUS   EmailValidationStatus = "Valid"
+	UNKNOWN_EMAIL_VALIDATION_STATUS EmailValidationStatus = "Unknown"
+	RISKY_EMAIL_VALIDATION_STATUS   EmailValidationStatus = "Risky"
+	INVALID_EMAIL_VALIDATION_STATUS EmailValidationStatus = "Invalid"
 )
 
 // All allowed values of EmailValidationStatus enum
@@ -115,4 +115,3 @@ func (v *NullableEmailValidationStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

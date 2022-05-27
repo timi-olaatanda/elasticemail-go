@@ -21,8 +21,8 @@ type TemplateScope string
 
 // List of TemplateScope
 const (
-	PERSONAL TemplateScope = "Personal"
-	GLOBAL TemplateScope = "Global"
+	PERSONAL_TEMPLATE_SCOPE TemplateScope = "Personal"
+	GLOBAL_TEMPLATE_SCOPE   TemplateScope = "Global"
 )
 
 // All allowed values of TemplateScope enum
@@ -109,4 +109,3 @@ func (v *NullableTemplateScope) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

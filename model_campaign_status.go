@@ -21,14 +21,14 @@ type CampaignStatus string
 
 // List of CampaignStatus
 const (
-	DELETED CampaignStatus = "Deleted"
-	ACTIVE CampaignStatus = "Active"
-	PROCESSING CampaignStatus = "Processing"
-	SENDING CampaignStatus = "Sending"
-	COMPLETED CampaignStatus = "Completed"
-	PAUSED CampaignStatus = "Paused"
-	CANCELLED CampaignStatus = "Cancelled"
-	DRAFT CampaignStatus = "Draft"
+	DELETED_CAMPAIGN_STATUS    CampaignStatus = "Deleted"
+	ACTIVE_CAMPAIGN_STATUS     CampaignStatus = "Active"
+	PROCESSING_CAMPAIGN_STATUS CampaignStatus = "Processing"
+	SENDING_CAMPAIGN_STATUS    CampaignStatus = "Sending"
+	COMPLETED_CAMPAIGN_STATUS  CampaignStatus = "Completed"
+	PAUSED_CAMPAIGN_STATUS     CampaignStatus = "Paused"
+	CANCELLED_CAMPAIGN_STATUS  CampaignStatus = "Cancelled"
+	DRAFT_CAMPAIGN_STATUS      CampaignStatus = "Draft"
 )
 
 // All allowed values of CampaignStatus enum
@@ -121,4 +121,3 @@ func (v *NullableCampaignStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

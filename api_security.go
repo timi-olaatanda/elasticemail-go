@@ -29,9 +29,9 @@ var (
 type SecurityApiService service
 
 type ApiSecurityApikeysByNameDeleteRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *SecurityApiService
-	name string
+	name       string
 	subaccount *string
 }
 
@@ -57,17 +57,17 @@ Delete your existing ApiKey. Required Access Level: Security
 func (a *SecurityApiService) SecurityApikeysByNameDelete(ctx context.Context, name string) ApiSecurityApikeysByNameDeleteRequest {
 	return ApiSecurityApikeysByNameDeleteRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
+		ctx:        ctx,
+		name:       name,
 	}
 }
 
 // Execute executes the request
 func (a *SecurityApiService) SecurityApikeysByNameDeleteExecute(r ApiSecurityApikeysByNameDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecurityApiService.SecurityApikeysByNameDelete")
@@ -145,9 +145,9 @@ func (a *SecurityApiService) SecurityApikeysByNameDeleteExecute(r ApiSecurityApi
 }
 
 type ApiSecurityApikeysByNameGetRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *SecurityApiService
-	name string
+	name       string
 	subaccount *string
 }
 
@@ -173,8 +173,8 @@ Load your existing ApiKey info. Required Access Level: Security
 func (a *SecurityApiService) SecurityApikeysByNameGet(ctx context.Context, name string) ApiSecurityApikeysByNameGetRequest {
 	return ApiSecurityApikeysByNameGetRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
+		ctx:        ctx,
+		name:       name,
 	}
 }
 
@@ -182,10 +182,10 @@ func (a *SecurityApiService) SecurityApikeysByNameGet(ctx context.Context, name 
 //  @return ApiKey
 func (a *SecurityApiService) SecurityApikeysByNameGetExecute(r ApiSecurityApikeysByNameGetRequest) (*ApiKey, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiKey
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiKey
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecurityApiService.SecurityApikeysByNameGet")
@@ -272,9 +272,9 @@ func (a *SecurityApiService) SecurityApikeysByNameGetExecute(r ApiSecurityApikey
 }
 
 type ApiSecurityApikeysByNamePutRequest struct {
-	ctx context.Context
-	ApiService *SecurityApiService
-	name string
+	ctx           context.Context
+	ApiService    *SecurityApiService
+	name          string
 	apiKeyPayload *ApiKeyPayload
 }
 
@@ -299,8 +299,8 @@ Update your existing ApiKey. Required Access Level: Security
 func (a *SecurityApiService) SecurityApikeysByNamePut(ctx context.Context, name string) ApiSecurityApikeysByNamePutRequest {
 	return ApiSecurityApikeysByNamePutRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
+		ctx:        ctx,
+		name:       name,
 	}
 }
 
@@ -308,10 +308,10 @@ func (a *SecurityApiService) SecurityApikeysByNamePut(ctx context.Context, name 
 //  @return ApiKey
 func (a *SecurityApiService) SecurityApikeysByNamePutExecute(r ApiSecurityApikeysByNamePutRequest) (*ApiKey, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ApiKey
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiKey
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecurityApiService.SecurityApikeysByNamePut")
@@ -400,7 +400,7 @@ func (a *SecurityApiService) SecurityApikeysByNamePutExecute(r ApiSecurityApikey
 }
 
 type ApiSecurityApikeysGetRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *SecurityApiService
 	subaccount *string
 }
@@ -426,7 +426,7 @@ List all your existing ApiKeys. Required Access Level: Security
 func (a *SecurityApiService) SecurityApikeysGet(ctx context.Context) ApiSecurityApikeysGetRequest {
 	return ApiSecurityApikeysGetRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -434,10 +434,10 @@ func (a *SecurityApiService) SecurityApikeysGet(ctx context.Context) ApiSecurity
 //  @return []ApiKey
 func (a *SecurityApiService) SecurityApikeysGetExecute(r ApiSecurityApikeysGetRequest) ([]ApiKey, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ApiKey
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ApiKey
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecurityApiService.SecurityApikeysGet")
@@ -523,8 +523,8 @@ func (a *SecurityApiService) SecurityApikeysGetExecute(r ApiSecurityApikeysGetRe
 }
 
 type ApiSecurityApikeysPostRequest struct {
-	ctx context.Context
-	ApiService *SecurityApiService
+	ctx           context.Context
+	ApiService    *SecurityApiService
 	apiKeyPayload *ApiKeyPayload
 }
 
@@ -533,7 +533,7 @@ func (r ApiSecurityApikeysPostRequest) ApiKeyPayload(apiKeyPayload ApiKeyPayload
 	return r
 }
 
-func (r ApiSecurityApikeysPostRequest) Execute() (*NewApiKey, *http.Response, error) {
+func (r ApiSecurityApikeysPostRequest) Execute() (*ApiKeyV2, *http.Response, error) {
 	return r.ApiService.SecurityApikeysPostExecute(r)
 }
 
@@ -548,18 +548,18 @@ Add a new ApiKey. Required Access Level: Security
 func (a *SecurityApiService) SecurityApikeysPost(ctx context.Context) ApiSecurityApikeysPostRequest {
 	return ApiSecurityApikeysPostRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 //  @return NewApiKey
-func (a *SecurityApiService) SecurityApikeysPostExecute(r ApiSecurityApikeysPostRequest) (*NewApiKey, *http.Response, error) {
+func (a *SecurityApiService) SecurityApikeysPostExecute(r ApiSecurityApikeysPostRequest) (*ApiKeyV2, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *NewApiKey
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ApiKeyV2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecurityApiService.SecurityApikeysPost")
@@ -647,9 +647,9 @@ func (a *SecurityApiService) SecurityApikeysPostExecute(r ApiSecurityApikeysPost
 }
 
 type ApiSecuritySmtpByNameDeleteRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *SecurityApiService
-	name string
+	name       string
 	subaccount *string
 }
 
@@ -675,17 +675,17 @@ Delete your existing SMTP Credentials. Required Access Level: Security
 func (a *SecurityApiService) SecuritySmtpByNameDelete(ctx context.Context, name string) ApiSecuritySmtpByNameDeleteRequest {
 	return ApiSecuritySmtpByNameDeleteRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
+		ctx:        ctx,
+		name:       name,
 	}
 }
 
 // Execute executes the request
 func (a *SecurityApiService) SecuritySmtpByNameDeleteExecute(r ApiSecuritySmtpByNameDeleteRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecurityApiService.SecuritySmtpByNameDelete")
@@ -763,9 +763,9 @@ func (a *SecurityApiService) SecuritySmtpByNameDeleteExecute(r ApiSecuritySmtpBy
 }
 
 type ApiSecuritySmtpByNameGetRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *SecurityApiService
-	name string
+	name       string
 	subaccount *string
 }
 
@@ -791,8 +791,8 @@ Load your existing SMTP Credential info. Required Access Level: Security
 func (a *SecurityApiService) SecuritySmtpByNameGet(ctx context.Context, name string) ApiSecuritySmtpByNameGetRequest {
 	return ApiSecuritySmtpByNameGetRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
+		ctx:        ctx,
+		name:       name,
 	}
 }
 
@@ -800,10 +800,10 @@ func (a *SecurityApiService) SecuritySmtpByNameGet(ctx context.Context, name str
 //  @return SmtpCredentials
 func (a *SecurityApiService) SecuritySmtpByNameGetExecute(r ApiSecuritySmtpByNameGetRequest) (*SmtpCredentials, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SmtpCredentials
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SmtpCredentials
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecurityApiService.SecuritySmtpByNameGet")
@@ -890,9 +890,9 @@ func (a *SecurityApiService) SecuritySmtpByNameGetExecute(r ApiSecuritySmtpByNam
 }
 
 type ApiSecuritySmtpByNamePutRequest struct {
-	ctx context.Context
-	ApiService *SecurityApiService
-	name string
+	ctx                    context.Context
+	ApiService             *SecurityApiService
+	name                   string
 	smtpCredentialsPayload *SmtpCredentialsPayload
 }
 
@@ -917,8 +917,8 @@ Update your existing SMTP Credentials. Required Access Level: Security
 func (a *SecurityApiService) SecuritySmtpByNamePut(ctx context.Context, name string) ApiSecuritySmtpByNamePutRequest {
 	return ApiSecuritySmtpByNamePutRequest{
 		ApiService: a,
-		ctx: ctx,
-		name: name,
+		ctx:        ctx,
+		name:       name,
 	}
 }
 
@@ -926,10 +926,10 @@ func (a *SecurityApiService) SecuritySmtpByNamePut(ctx context.Context, name str
 //  @return SmtpCredentials
 func (a *SecurityApiService) SecuritySmtpByNamePutExecute(r ApiSecuritySmtpByNamePutRequest) (*SmtpCredentials, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SmtpCredentials
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SmtpCredentials
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecurityApiService.SecuritySmtpByNamePut")
@@ -1018,7 +1018,7 @@ func (a *SecurityApiService) SecuritySmtpByNamePutExecute(r ApiSecuritySmtpByNam
 }
 
 type ApiSecuritySmtpGetRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *SecurityApiService
 	subaccount *string
 }
@@ -1044,7 +1044,7 @@ List all your existing SMTP Credentials. Required Access Level: Security
 func (a *SecurityApiService) SecuritySmtpGet(ctx context.Context) ApiSecuritySmtpGetRequest {
 	return ApiSecuritySmtpGetRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1052,10 +1052,10 @@ func (a *SecurityApiService) SecuritySmtpGet(ctx context.Context) ApiSecuritySmt
 //  @return []SmtpCredentials
 func (a *SecurityApiService) SecuritySmtpGetExecute(r ApiSecuritySmtpGetRequest) ([]SmtpCredentials, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []SmtpCredentials
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []SmtpCredentials
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecurityApiService.SecuritySmtpGet")
@@ -1141,8 +1141,8 @@ func (a *SecurityApiService) SecuritySmtpGetExecute(r ApiSecuritySmtpGetRequest)
 }
 
 type ApiSecuritySmtpPostRequest struct {
-	ctx context.Context
-	ApiService *SecurityApiService
+	ctx                    context.Context
+	ApiService             *SecurityApiService
 	smtpCredentialsPayload *SmtpCredentialsPayload
 }
 
@@ -1151,7 +1151,7 @@ func (r ApiSecuritySmtpPostRequest) SmtpCredentialsPayload(smtpCredentialsPayloa
 	return r
 }
 
-func (r ApiSecuritySmtpPostRequest) Execute() (*NewSmtpCredentials, *http.Response, error) {
+func (r ApiSecuritySmtpPostRequest) Execute() (*SmtpCredentialsV2, *http.Response, error) {
 	return r.ApiService.SecuritySmtpPostExecute(r)
 }
 
@@ -1166,18 +1166,18 @@ Add new SMTP Credential. Required Access Level: Security
 func (a *SecurityApiService) SecuritySmtpPost(ctx context.Context) ApiSecuritySmtpPostRequest {
 	return ApiSecuritySmtpPostRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 //  @return NewSmtpCredentials
-func (a *SecurityApiService) SecuritySmtpPostExecute(r ApiSecuritySmtpPostRequest) (*NewSmtpCredentials, *http.Response, error) {
+func (a *SecurityApiService) SecuritySmtpPostExecute(r ApiSecuritySmtpPostRequest) (*SmtpCredentialsV2, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *NewSmtpCredentials
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SmtpCredentialsV2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SecurityApiService.SecuritySmtpPost")

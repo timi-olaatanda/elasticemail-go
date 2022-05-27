@@ -37,7 +37,7 @@ type SmtpCredentials struct {
 // will change when the set of required properties is changed
 func NewSmtpCredentials() *SmtpCredentials {
 	this := SmtpCredentials{}
-	var accessLevel AccessLevel = NONE
+	var accessLevel AccessLevel = NONE_ACCESS_LEVEL
 	this.AccessLevel = &accessLevel
 	return &this
 }
@@ -47,7 +47,7 @@ func NewSmtpCredentials() *SmtpCredentials {
 // but it doesn't guarantee that properties required by API are set
 func NewSmtpCredentialsWithDefaults() *SmtpCredentials {
 	this := SmtpCredentials{}
-	var accessLevel AccessLevel = NONE
+	var accessLevel AccessLevel = NONE_ACCESS_LEVEL
 	this.AccessLevel = &accessLevel
 	return &this
 }
@@ -161,7 +161,7 @@ func (o *SmtpCredentials) GetLastUse() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SmtpCredentials) GetLastUseOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.LastUse.Get(), o.LastUse.IsSet()
@@ -180,6 +180,7 @@ func (o *SmtpCredentials) HasLastUse() bool {
 func (o *SmtpCredentials) SetLastUse(v time.Time) {
 	o.LastUse.Set(&v)
 }
+
 // SetLastUseNil sets the value for LastUse to be an explicit nil
 func (o *SmtpCredentials) SetLastUseNil() {
 	o.LastUse.Set(nil)
@@ -203,7 +204,7 @@ func (o *SmtpCredentials) GetExpires() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *SmtpCredentials) GetExpiresOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Expires.Get(), o.Expires.IsSet()
@@ -222,6 +223,7 @@ func (o *SmtpCredentials) HasExpires() bool {
 func (o *SmtpCredentials) SetExpires(v time.Time) {
 	o.Expires.Set(&v)
 }
+
 // SetExpiresNil sets the value for Expires to be an explicit nil
 func (o *SmtpCredentials) SetExpiresNil() {
 	o.Expires.Set(nil)
@@ -322,5 +324,3 @@ func (v *NullableSmtpCredentials) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

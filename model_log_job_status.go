@@ -21,16 +21,16 @@ type LogJobStatus string
 
 // List of LogJobStatus
 const (
-	ALL LogJobStatus = "All"
-	READY_TO_SEND LogJobStatus = "ReadyToSend"
-	WAITING_TO_RETRY LogJobStatus = "WaitingToRetry"
-	SENDING LogJobStatus = "Sending"
-	ERROR LogJobStatus = "Error"
-	SENT LogJobStatus = "Sent"
-	OPENED LogJobStatus = "Opened"
-	CLICKED LogJobStatus = "Clicked"
-	UNSUBSCRIBED LogJobStatus = "Unsubscribed"
-	ABUSE_REPORT LogJobStatus = "AbuseReport"
+	ALL_LOG_JOB_STATUS              LogJobStatus = "All"
+	READY_TO_SEND_LOG_JOB_STATUS    LogJobStatus = "ReadyToSend"
+	WAITING_TO_RETRY_LOG_JOB_STATUS LogJobStatus = "WaitingToRetry"
+	SENDING_LOG_JOB_STATUS          LogJobStatus = "Sending"
+	ERROR_LOG_JOB_STATUS            LogJobStatus = "Error"
+	SENT_LOG_JOB_STATUS             LogJobStatus = "Sent"
+	OPENED_LOG_JOB_STATUS           LogJobStatus = "Opened"
+	CLICKED_LOG_JOB_STATUS          LogJobStatus = "Clicked"
+	UNSUBSCRIBED_LOG_JOB_STATUS     LogJobStatus = "Unsubscribed"
+	ABUSE_REPORT_LOG_JOB_STATUS     LogJobStatus = "AbuseReport"
 )
 
 // All allowed values of LogJobStatus enum
@@ -125,4 +125,3 @@ func (v *NullableLogJobStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

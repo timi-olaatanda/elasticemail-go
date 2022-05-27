@@ -24,7 +24,7 @@ type CampaignOptions struct {
 	// Should the clicks be tracked? If no value has been provided, Account's default setting will be used.
 	TrackClicks NullableBool `json:"TrackClicks,omitempty"`
 	// Date when this Campaign is scheduled to be sent on
-	ScheduleFor NullableTime `json:"ScheduleFor,omitempty"`
+	ScheduleFor  NullableTime  `json:"ScheduleFor,omitempty"`
 	SplitOptions *SplitOptions `json:"SplitOptions,omitempty"`
 }
 
@@ -34,7 +34,7 @@ type CampaignOptions struct {
 // will change when the set of required properties is changed
 func NewCampaignOptions() *CampaignOptions {
 	this := CampaignOptions{}
-	var deliveryOptimization DeliveryOptimizationType = NONE
+	var deliveryOptimization DeliveryOptimizationType = NONE_DELIVERY_OPTIMIZATION_TYPE
 	this.DeliveryOptimization = &deliveryOptimization
 	return &this
 }
@@ -44,7 +44,7 @@ func NewCampaignOptions() *CampaignOptions {
 // but it doesn't guarantee that properties required by API are set
 func NewCampaignOptionsWithDefaults() *CampaignOptions {
 	this := CampaignOptions{}
-	var deliveryOptimization DeliveryOptimizationType = NONE
+	var deliveryOptimization DeliveryOptimizationType = NONE_DELIVERY_OPTIMIZATION_TYPE
 	this.DeliveryOptimization = &deliveryOptimization
 	return &this
 }
@@ -94,7 +94,7 @@ func (o *CampaignOptions) GetTrackOpens() bool {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CampaignOptions) GetTrackOpensOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.TrackOpens.Get(), o.TrackOpens.IsSet()
@@ -113,6 +113,7 @@ func (o *CampaignOptions) HasTrackOpens() bool {
 func (o *CampaignOptions) SetTrackOpens(v bool) {
 	o.TrackOpens.Set(&v)
 }
+
 // SetTrackOpensNil sets the value for TrackOpens to be an explicit nil
 func (o *CampaignOptions) SetTrackOpensNil() {
 	o.TrackOpens.Set(nil)
@@ -136,7 +137,7 @@ func (o *CampaignOptions) GetTrackClicks() bool {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CampaignOptions) GetTrackClicksOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.TrackClicks.Get(), o.TrackClicks.IsSet()
@@ -155,6 +156,7 @@ func (o *CampaignOptions) HasTrackClicks() bool {
 func (o *CampaignOptions) SetTrackClicks(v bool) {
 	o.TrackClicks.Set(&v)
 }
+
 // SetTrackClicksNil sets the value for TrackClicks to be an explicit nil
 func (o *CampaignOptions) SetTrackClicksNil() {
 	o.TrackClicks.Set(nil)
@@ -178,7 +180,7 @@ func (o *CampaignOptions) GetScheduleFor() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CampaignOptions) GetScheduleForOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.ScheduleFor.Get(), o.ScheduleFor.IsSet()
@@ -197,6 +199,7 @@ func (o *CampaignOptions) HasScheduleFor() bool {
 func (o *CampaignOptions) SetScheduleFor(v time.Time) {
 	o.ScheduleFor.Set(&v)
 }
+
 // SetScheduleForNil sets the value for ScheduleFor to be an explicit nil
 func (o *CampaignOptions) SetScheduleForNil() {
 	o.ScheduleFor.Set(nil)
@@ -294,5 +297,3 @@ func (v *NullableCampaignOptions) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

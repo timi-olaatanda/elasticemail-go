@@ -33,8 +33,8 @@ type EmailValidationResult struct {
 	// All detected issues
 	Reason *string `json:"Reason,omitempty"`
 	// Date of creation in YYYY-MM-DDThh:ii:ss format
-	DateAdded *time.Time `json:"DateAdded,omitempty"`
-	Result *EmailValidationStatus `json:"Result,omitempty"`
+	DateAdded *time.Time             `json:"DateAdded,omitempty"`
+	Result    *EmailValidationStatus `json:"Result,omitempty"`
 }
 
 // NewEmailValidationResult instantiates a new EmailValidationResult object
@@ -43,7 +43,7 @@ type EmailValidationResult struct {
 // will change when the set of required properties is changed
 func NewEmailValidationResult() *EmailValidationResult {
 	this := EmailValidationResult{}
-	var result EmailValidationStatus = NONE
+	var result EmailValidationStatus = NONE_EMAIL_VALIDATION_STATUS
 	this.Result = &result
 	return &this
 }
@@ -53,7 +53,7 @@ func NewEmailValidationResult() *EmailValidationResult {
 // but it doesn't guarantee that properties required by API are set
 func NewEmailValidationResultWithDefaults() *EmailValidationResult {
 	this := EmailValidationResult{}
-	var result EmailValidationStatus = NONE
+	var result EmailValidationStatus = NONE_EMAIL_VALIDATION_STATUS
 	this.Result = &result
 	return &this
 }
@@ -413,5 +413,3 @@ func (v *NullableEmailValidationResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

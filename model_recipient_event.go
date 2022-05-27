@@ -27,12 +27,12 @@ type RecipientEvent struct {
 	// Ending date for search in YYYY-MM-DDThh:mm:ss format.
 	To *string `json:"To,omitempty"`
 	// Default subject of email.
-	Subject *string `json:"Subject,omitempty"`
+	Subject   *string    `json:"Subject,omitempty"`
 	EventType *EventType `json:"EventType,omitempty"`
 	// Creation date
 	EventDate *time.Time `json:"EventDate,omitempty"`
 	// Name of selected channel.
-	ChannelName *string `json:"ChannelName,omitempty"`
+	ChannelName     *string          `json:"ChannelName,omitempty"`
 	MessageCategory *MessageCategory `json:"MessageCategory,omitempty"`
 	// Date of next try
 	NextTryOn NullableTime `json:"NextTryOn,omitempty"`
@@ -52,7 +52,7 @@ func NewRecipientEvent() *RecipientEvent {
 	this := RecipientEvent{}
 	var eventType EventType = SUBMISSION
 	this.EventType = &eventType
-	var messageCategory MessageCategory = UNKNOWN
+	var messageCategory MessageCategory = UNKNOWN_MESSAGE_CATEGORY
 	this.MessageCategory = &messageCategory
 	return &this
 }
@@ -64,7 +64,7 @@ func NewRecipientEventWithDefaults() *RecipientEvent {
 	this := RecipientEvent{}
 	var eventType EventType = SUBMISSION
 	this.EventType = &eventType
-	var messageCategory MessageCategory = UNKNOWN
+	var messageCategory MessageCategory = UNKNOWN_MESSAGE_CATEGORY
 	this.MessageCategory = &messageCategory
 	return &this
 }
@@ -370,7 +370,7 @@ func (o *RecipientEvent) GetNextTryOn() time.Time {
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *RecipientEvent) GetNextTryOnOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.NextTryOn.Get(), o.NextTryOn.IsSet()
@@ -389,6 +389,7 @@ func (o *RecipientEvent) HasNextTryOn() bool {
 func (o *RecipientEvent) SetNextTryOn(v time.Time) {
 	o.NextTryOn.Set(&v)
 }
+
 // SetNextTryOnNil sets the value for NextTryOn to be an explicit nil
 func (o *RecipientEvent) SetNextTryOnNil() {
 	o.NextTryOn.Set(nil)
@@ -574,5 +575,3 @@ func (v *NullableRecipientEvent) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

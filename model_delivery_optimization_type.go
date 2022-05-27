@@ -21,9 +21,9 @@ type DeliveryOptimizationType string
 
 // List of DeliveryOptimizationType
 const (
-	NONE DeliveryOptimizationType = "None"
-	TO_ENGAGED_FIRST DeliveryOptimizationType = "ToEngagedFirst"
-	BY_OPEN_TIME DeliveryOptimizationType = "ByOpenTime"
+	NONE_DELIVERY_OPTIMIZATION_TYPE             DeliveryOptimizationType = "None"
+	TO_ENGAGED_FIRST_DELIVERY_OPTIMIZATION_TYPE DeliveryOptimizationType = "ToEngagedFirst"
+	BY_OPEN_TIME_DELIVERY_OPTIMIZATION_TYPE     DeliveryOptimizationType = "ByOpenTime"
 )
 
 // All allowed values of DeliveryOptimizationType enum
@@ -111,4 +111,3 @@ func (v *NullableDeliveryOptimizationType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

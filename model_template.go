@@ -26,7 +26,7 @@ type Template struct {
 	// Default subject of email.
 	Subject *string `json:"Subject,omitempty"`
 	// Email content of this template
-	Body []BodyPart `json:"Body,omitempty"`
+	Body          []BodyPart     `json:"Body,omitempty"`
 	TemplateScope *TemplateScope `json:"TemplateScope,omitempty"`
 }
 
@@ -38,7 +38,7 @@ func NewTemplate() *Template {
 	this := Template{}
 	var templateType TemplateType = RAW_HTML
 	this.TemplateType = &templateType
-	var templateScope TemplateScope = PERSONAL
+	var templateScope TemplateScope = PERSONAL_TEMPLATE_SCOPE
 	this.TemplateScope = &templateScope
 	return &this
 }
@@ -50,7 +50,7 @@ func NewTemplateWithDefaults() *Template {
 	this := Template{}
 	var templateType TemplateType = RAW_HTML
 	this.TemplateType = &templateType
-	var templateScope TemplateScope = PERSONAL
+	var templateScope TemplateScope = PERSONAL_TEMPLATE_SCOPE
 	this.TemplateScope = &templateScope
 	return &this
 }
@@ -305,5 +305,3 @@ func (v *NullableTemplate) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

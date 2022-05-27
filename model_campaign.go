@@ -20,10 +20,10 @@ type Campaign struct {
 	// Campaign's email content. Provide multiple items to send an A/X Split Campaign
 	Content []CampaignTemplate `json:"Content,omitempty"`
 	// Campaign name
-	Name string `json:"Name"`
-	Status *CampaignStatus `json:"Status,omitempty"`
+	Name       string            `json:"Name"`
+	Status     *CampaignStatus   `json:"Status,omitempty"`
 	Recipients CampaignRecipient `json:"Recipients"`
-	Options *CampaignOptions `json:"Options,omitempty"`
+	Options    *CampaignOptions  `json:"Options,omitempty"`
 }
 
 // NewCampaign instantiates a new Campaign object
@@ -33,7 +33,7 @@ type Campaign struct {
 func NewCampaign(name string, recipients CampaignRecipient) *Campaign {
 	this := Campaign{}
 	this.Name = name
-	var status CampaignStatus = DELETED
+	var status CampaignStatus = DELETED_CAMPAIGN_STATUS
 	this.Status = &status
 	this.Recipients = recipients
 	return &this
@@ -44,7 +44,7 @@ func NewCampaign(name string, recipients CampaignRecipient) *Campaign {
 // but it doesn't guarantee that properties required by API are set
 func NewCampaignWithDefaults() *Campaign {
 	this := Campaign{}
-	var status CampaignStatus = DELETED
+	var status CampaignStatus = DELETED_CAMPAIGN_STATUS
 	this.Status = &status
 	return &this
 }
@@ -94,7 +94,7 @@ func (o *Campaign) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *Campaign) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -150,7 +150,7 @@ func (o *Campaign) GetRecipients() CampaignRecipient {
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
 func (o *Campaign) GetRecipientsOk() (*CampaignRecipient, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Recipients, true
@@ -248,5 +248,3 @@ func (v *NullableCampaign) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,15 +21,15 @@ type ContactStatus string
 
 // List of ContactStatus
 const (
-	TRANSACTIONAL ContactStatus = "Transactional"
-	ENGAGED ContactStatus = "Engaged"
-	ACTIVE ContactStatus = "Active"
-	BOUNCED ContactStatus = "Bounced"
-	UNSUBSCRIBED ContactStatus = "Unsubscribed"
-	ABUSE ContactStatus = "Abuse"
-	INACTIVE ContactStatus = "Inactive"
-	STALE ContactStatus = "Stale"
-	NOT_CONFIRMED ContactStatus = "NotConfirmed"
+	TRANSACTIONAL_CONTACT_STATUS ContactStatus = "Transactional"
+	ENGAGED_CONTACT_STATUS       ContactStatus = "Engaged"
+	ACTIVE_CONTACT_STATUS        ContactStatus = "Active"
+	BOUNCED_CONTACT_STATUS       ContactStatus = "Bounced"
+	UNSUBSCRIBED_CONTACT_STATUS  ContactStatus = "Unsubscribed"
+	ABUSE_CONTACT_STATUS         ContactStatus = "Abuse"
+	INACTIVE_CONTACT_STATUS      ContactStatus = "Inactive"
+	STALE_CONTACT_STATUS         ContactStatus = "Stale"
+	NOT_CONFIRMED_CONTACT_STATUS ContactStatus = "NotConfirmed"
 )
 
 // All allowed values of ContactStatus enum
@@ -123,4 +123,3 @@ func (v *NullableContactStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

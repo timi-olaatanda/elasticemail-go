@@ -22,7 +22,7 @@ type TemplatePayload struct {
 	// Default subject of email.
 	Subject *string `json:"Subject,omitempty"`
 	// Email content of this template
-	Body []BodyPart `json:"Body,omitempty"`
+	Body          []BodyPart     `json:"Body,omitempty"`
 	TemplateScope *TemplateScope `json:"TemplateScope,omitempty"`
 }
 
@@ -33,7 +33,7 @@ type TemplatePayload struct {
 func NewTemplatePayload(name string) *TemplatePayload {
 	this := TemplatePayload{}
 	this.Name = name
-	var templateScope TemplateScope = PERSONAL
+	var templateScope TemplateScope = PERSONAL_TEMPLATE_SCOPE
 	this.TemplateScope = &templateScope
 	return &this
 }
@@ -43,7 +43,7 @@ func NewTemplatePayload(name string) *TemplatePayload {
 // but it doesn't guarantee that properties required by API are set
 func NewTemplatePayloadWithDefaults() *TemplatePayload {
 	this := TemplatePayload{}
-	var templateScope TemplateScope = PERSONAL
+	var templateScope TemplateScope = PERSONAL_TEMPLATE_SCOPE
 	this.TemplateScope = &templateScope
 	return &this
 }
@@ -61,7 +61,7 @@ func (o *TemplatePayload) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *TemplatePayload) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -220,5 +220,3 @@ func (v *NullableTemplatePayload) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

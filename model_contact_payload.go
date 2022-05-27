@@ -18,7 +18,7 @@ import (
 // ContactPayload struct for ContactPayload
 type ContactPayload struct {
 	// Proper email address.
-	Email string `json:"Email"`
+	Email  string         `json:"Email"`
 	Status *ContactStatus `json:"Status,omitempty"`
 	// First name.
 	FirstName *string `json:"FirstName,omitempty"`
@@ -26,7 +26,7 @@ type ContactPayload struct {
 	LastName *string `json:"LastName,omitempty"`
 	// A key-value collection of custom contact fields which can be used in the system. Only already existing custom fields will be saved.
 	CustomFields *map[string]string `json:"CustomFields,omitempty"`
-	Consent *ConsentData `json:"Consent,omitempty"`
+	Consent      *ConsentData       `json:"Consent,omitempty"`
 }
 
 // NewContactPayload instantiates a new ContactPayload object
@@ -36,7 +36,7 @@ type ContactPayload struct {
 func NewContactPayload(email string) *ContactPayload {
 	this := ContactPayload{}
 	this.Email = email
-	var status ContactStatus = TRANSACTIONAL
+	var status ContactStatus = TRANSACTIONAL_CONTACT_STATUS
 	this.Status = &status
 	return &this
 }
@@ -46,7 +46,7 @@ func NewContactPayload(email string) *ContactPayload {
 // but it doesn't guarantee that properties required by API are set
 func NewContactPayloadWithDefaults() *ContactPayload {
 	this := ContactPayload{}
-	var status ContactStatus = TRANSACTIONAL
+	var status ContactStatus = TRANSACTIONAL_CONTACT_STATUS
 	this.Status = &status
 	return &this
 }
@@ -64,7 +64,7 @@ func (o *ContactPayload) GetEmail() string {
 // GetEmailOk returns a tuple with the Email field value
 // and a boolean to check if the value has been set.
 func (o *ContactPayload) GetEmailOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Email, true
@@ -293,5 +293,3 @@ func (v *NullableContactPayload) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

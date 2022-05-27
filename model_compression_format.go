@@ -21,8 +21,8 @@ type CompressionFormat string
 
 // List of CompressionFormat
 const (
-	NONE CompressionFormat = "None"
-	ZIP CompressionFormat = "Zip"
+	NONE_COMPRESSION_FORMAT CompressionFormat = "None"
+	ZIP_COMPRESSION_FORMAT  CompressionFormat = "Zip"
 )
 
 // All allowed values of CompressionFormat enum
@@ -109,4 +109,3 @@ func (v *NullableCompressionFormat) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
